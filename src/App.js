@@ -1,17 +1,18 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      quotes: []
+      quotes: [], 
+      error: ''
     }
   }
 
   componentDidMount = () => {
-    return fetch("https://quote-garden.onrender.com/api/v3/quotes")
+    return fetch("https://quote-garden.onrender.com/api/v3/quots")
       .then(response => {
         if (!response.ok) {
          throw new Error(`${response.status}, ${response.statusText}`)
@@ -21,7 +22,7 @@ class App extends Component {
       .then(data => {
         this.setState({ quotes: data.data })
       })
-      .catch(err => {throw new Error(`${err}`)})
+      .catch(err => this.setState({ error: `${err}` }))
   }
 
   render() {
@@ -33,6 +34,7 @@ class App extends Component {
           <NavLink exact to='/'>All Quotes</NavLink>
           <NavLink to='/favorites'>Favorites</NavLink>
         </nav>
+        {this.state.error && <h5 className="error-message">{this.state.error}</h5>}
       </main>
     )
   }
