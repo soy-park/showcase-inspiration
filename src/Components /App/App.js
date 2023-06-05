@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import {Route, Switch} from "react-router-dom";
-import './App.css';
+import {Route, Switch, NavLink } from "react-router-dom";
+import '../App';
+import CardContainer from 'src/Components /CardContainer/CardContainer';
 
 class App extends Component {
   constructor() {
@@ -35,6 +36,10 @@ class App extends Component {
       <main className="main-page">
         <h1>Meditation is Medicine for the Mind</h1>
         <h3>Encouragement Regarding Aging</h3>
+        <nav>
+          <NavLink exact to='/'>All Quotes</NavLink>
+          <NavLink to='/favorites'>Favorites</NavLink>
+        </nav>
         {this.state.error && <h5 className="error-message">{this.state.error}</h5>}
         <Switch>
           <Route exact path='/' render={() => <CardContainer quotes={this.state.quotes} />}/>
