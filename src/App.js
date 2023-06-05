@@ -23,6 +23,15 @@ class App extends Component {
       })
       .catch(err => {throw new Error(`${err}`)})
   }
+
+  render() {
+    return (
+      <main className="main-page">
+        <h1>A Place for Encouragement Regarding Aging</h1>
+        <h3>Meditation is Medicine for the Mind</h3>
+      </main>
+    )
+  }
 }
 
 export default App;
