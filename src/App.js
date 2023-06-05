@@ -7,6 +7,7 @@ class App extends Component {
     super();
     this.state = {
       quotes: [], 
+      favorites: [],
       error: ''
     }
   }
@@ -37,7 +38,7 @@ class App extends Component {
         {this.state.error && <h5 className="error-message">{this.state.error}</h5>}
         <Switch>
           <Route exact path='/' render={() => <CardContainer quotes={this.state.quotes} />}/>
-          <Route path='/favorites'/>
+          <Route path='/favorites' render={() => <CardContainer quotes={this.state.favorites} />}/>
         </Switch>
       </main>
     )
