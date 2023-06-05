@@ -35,7 +35,7 @@ class App extends Component {
     return (
       <main className="main-page">
         <h1>Meditation is Medicine for the Mind</h1>
-        <h3>Encouragement Regarding Aging</h3>
+        <h2>Encouragement Regarding Aging</h2>
         <nav>
           <NavLink exact to='/'>All Quotes</NavLink>
           <NavLink to='/favorites'>Favorites</NavLink>

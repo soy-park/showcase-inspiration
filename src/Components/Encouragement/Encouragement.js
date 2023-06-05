@@ -5,8 +5,8 @@ const Encouragement = ({ cardKey, quote, author }) => {
 
     return (
         <article className='card'>
-            <h2 className="quote">{quote}</h2>
-            <p className="author">{author}</p>
+            <h3 className="quote">"{quote}"</h3>
+            <p className="author">- {author}</p>
         </article>
     )
 }
