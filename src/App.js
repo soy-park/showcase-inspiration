@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, NavLink } from "react-router-dom";
+import { Route, Switch, NavLink } from "react-router-dom";
 import './App.css';
 
 class App extends Component {
@@ -34,7 +34,11 @@ class App extends Component {
           <NavLink exact to='/'>All Quotes</NavLink>
           <NavLink to='/favorites'>Favorites</NavLink>
         </nav>
-        {this.state.error && <h5 className="error-message">{this.state.error}</h5>}
+        {this.state.error && <h5 className="error-message">{this.state.error.message}</h5>}
+        <Switch>
+          {!this.state.error && <Route exact path='/'/>}
+          <Route path='/favorites'/>
+        </Switch>
       </main>
     )
   }
