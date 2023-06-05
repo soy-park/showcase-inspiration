@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {Route, Switch, NavLink } from "react-router-dom";
-import '../App';
-import CardContainer from 'src/Components /CardContainer/CardContainer';
+import '../App/App.css';
+import CardContainer from '../CardContainer/CardContainer';
 
 class App extends Component {
   constructor() {
@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    return fetch("https://quote-garden.onrender.com/api/v3/quots")
+    return fetch("https://quote-garden.onrender.com/api/v3/quotes")
       .then(response => {
         if (!response.ok) {
           this.setState({ error: `${response.status}, ${response.statusText}`})
