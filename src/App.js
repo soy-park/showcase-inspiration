@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Route } from "react-router-dom";
 import './App.css';
 
 class App extends Component {
@@ -18,8 +19,7 @@ class App extends Component {
         return response.json()
     }) 
       .then(data => {
-        console.log(data)
-        this.setState({ quotes: data })
+        this.setState({ quotes: data.data })
       })
       .catch(err => {throw new Error(`${err}`)})
   }
@@ -27,8 +27,12 @@ class App extends Component {
   render() {
     return (
       <main className="main-page">
-        <h1>A Place for Encouragement Regarding Aging</h1>
-        <h3>Meditation is Medicine for the Mind</h3>
+        <h1>Meditation is Medicine for the Mind</h1>
+        <h3>Encouragement Regarding Aging</h3>
+        <nav>
+          <NavLink exact to='/'>All Quotes</NavLink>
+          <NavLink to='/favorites'>Favorites</NavLink>
+        </nav>
       </main>
     )
   }
