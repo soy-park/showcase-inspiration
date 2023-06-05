@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Route, Switch, NavLink} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import './App.css';
 
 class App extends Component {
@@ -15,14 +15,18 @@ class App extends Component {
     return fetch("https://quote-garden.onrender.com/api/v3/quots")
       .then(response => {
         if (!response.ok) {
-         throw new Error(`${response.status}, ${response.statusText}`)
+          this.setState({ error: `${response.status}, ${response.statusText}`})
+          throw new Error(`${response.status}, ${response.statusText}`)
         }
         return response.json()
-    }) 
+      }) 
       .then(data => {
         this.setState({ quotes: data.data })
       })
-      .catch(err => this.setState({ error: `${err}` }))
+      .catch(err => {
+        this.setState({ error: `${err}` })
+        throw new Error(`${err}`)
+      })
   }
 
   render() {
@@ -30,13 +34,9 @@ class App extends Component {
       <main className="main-page">
         <h1>Meditation is Medicine for the Mind</h1>
         <h3>Encouragement Regarding Aging</h3>
-        <nav>
-          <NavLink exact to='/'>All Quotes</NavLink>
-          <NavLink to='/favorites'>Favorites</NavLink>
-        </nav>
-        {this.state.error && <h5 className="error-message">{this.state.error.message}</h5>}
+        {this.state.error && <h5 className="error-message">{this.state.error}</h5>}
         <Switch>
-          {!this.state.error && <Route exact path='/'/>}
+          <Route exact path='/' render={() => <CardContainer quotes={this.state.quotes} />}/>
           <Route path='/favorites'/>
         </Switch>
       </main>
