@@ -21,6 +21,11 @@ function CardContainer({ quotes }) {
         }
     }
 
+    const removeFavorite = (id) => {
+        const updatedFavs = favorites.filter(favorite => favorite._id !== id)
+        setFavorites(updatedFavs)
+    }
+
     if (window.location.pathname === '/') {
         cards = quotes.map(quote => {
             const isFavorite = favorites.includes(quote._id)
@@ -42,7 +47,17 @@ function CardContainer({ quotes }) {
         })
     } else if (window.location.pathname === '/favorites') {
         cards = favorites.map(favorite => {
-
+            <section className="card">
+                <Encouragement 
+                    key={favorite._id}
+                    quote={favorite.quoteText}
+                    author={favorite.quoteAuthor}
+                /> 
+            <button 
+                className="delete-button" 
+                onClick={() => removeFavorite(favorite._id)}>
+            </button>
+        </section>
         })
     }
 

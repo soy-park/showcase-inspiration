@@ -39,11 +39,6 @@ class App extends Component {
   //   }
   // }
 
-  // removeFavorite = (id) => {
-  //   const updatedFavs = this.state.favorites.filter(favorite => favorite._id !== id)
-  //   this.setState({ favorites: updatedFavs })
-  // }
-
   render() {
     return (
       <main className="main-page">
