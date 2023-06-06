@@ -6,7 +6,7 @@ function CardContainer({ quotes }) {
     const cards = quotes.map(quote => {
         return <>
             <Encouragement 
-                key={quote.id}
+                key={quote._id}
                 quote={quote.quoteText}
                 author={quote.quoteAuthor}
             />   
