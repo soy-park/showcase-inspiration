@@ -8,7 +8,6 @@ class App extends Component {
     super();
     this.state = {
       quotes: [], 
-      favorites: [],
       error: ''
     }
   }
