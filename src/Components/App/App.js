@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import {Route, Switch} from "react-router-dom";
-import './App.css';
+import {Route, Switch, NavLink } from "react-router-dom";
+import '../App/App.css';
+import CardContainer from '../CardContainer/CardContainer';
 
 class App extends Component {
   constructor() {
@@ -13,7 +14,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    return fetch("https://quote-garden.onrender.com/api/v3/quots")
+    return fetch("https://quote-garden.onrender.com/api/v3/quotes")
       .then(response => {
         if (!response.ok) {
           this.setState({ error: `${response.status}, ${response.statusText}`})
@@ -34,7 +35,11 @@ class App extends Component {
     return (
       <main className="main-page">
         <h1>Meditation is Medicine for the Mind</h1>
-        <h3>Encouragement Regarding Aging</h3>
+        <h2>Encouragement Regarding Aging</h2>
+        <nav>
+          <NavLink exact to='/'>All Quotes</NavLink>
+          <NavLink to='/favorites'>Favorites</NavLink>
+        </nav>
         {this.state.error && <h5 className="error-message">{this.state.error}</h5>}
         <Switch>
           <Route exact path='/' render={() => <CardContainer quotes={this.state.quotes} />}/>
