@@ -31,6 +31,14 @@ class App extends Component {
       })
   }
 
+  favoriteQuote = (obj) => {
+    this.setState({ favorites: [...favorites, obj] })
+  }
+
+  removeFavorite = () => {
+    
+  }
+
   render() {
     return (
       <main className="main-page">
