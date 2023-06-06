@@ -31,19 +31,19 @@ class App extends Component {
       })
   }
 
-  favoriteQuote = (id) => {
-    const newFav = this.state.quotes.filter(quote => quote._id === id)
-    if (this.state.favorites.length) {
-      this.setState({ favorites: [...this.state.favorites, newFav] })
-    } else {
-      this.setState({ favorites: newFav })
-    }
-  }
+  // favoriteQuote = (id) => {
+  //   const newFav = this.state.quotes.filter(quote => quote._id === id)
+  //   if (this.state.favorites.length) {
+  //     this.setState({ favorites: [...this.state.favorites, newFav] })
+  //   } else {
+  //     this.setState({ favorites: newFav })
+  //   }
+  // }
 
-  removeFavorite = (id) => {
-    const updatedFavs = this.state.favorites.filter(favorite => favorite._id !== id)
-    this.setState({ favorites: updatedFavs })
-  }
+  // removeFavorite = (id) => {
+  //   const updatedFavs = this.state.favorites.filter(favorite => favorite._id !== id)
+  //   this.setState({ favorites: updatedFavs })
+  // }
 
   render() {
     return (
@@ -56,8 +56,8 @@ class App extends Component {
         </nav>
         {this.state.error && <h5 className="error-message">{this.state.error}</h5>}
         <Switch>
-          <Route exact path='/' render={() => <CardContainer quotes={this.state.quotes} favoriteQuote={this.favoriteQuote} />}/>
-          <Route path='/favorites' render={() => <CardContainer quotes={this.state.favorites} removeFavorite={this.removeFavorite} />}/>
+          <Route exact path='/' render={() => <CardContainer quotes={this.state.quotes} />}/>
+          <Route path='/favorites' render={() => <CardContainer quotes={this.state.quotes} />}/>
         </Switch>
       </main>
     )
