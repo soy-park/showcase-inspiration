@@ -1,3 +1,6 @@
 .main-page {
   text-align: center;
+  background: url(https://www.amnhealthcare.com/siteassets/amn-insights/blog/covid-articles/supporting-healthcare-heroes.jpg?format=webp);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
