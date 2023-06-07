@@ -32,4 +32,9 @@ function CardContainer({ quotes, favorites, toggleFavorite }) {
 }
 
 export default CardContainer
-  
+
+CardContainer.propTypes = {
+    quotes: PropTypes.array.isRequired,
+    favorites: PropTypes.array,
+    toggleFavorite: PropTypes.func.isRequired
+  }

@@ -77,6 +77,6 @@ export default App;
 
 App.propTypes = {
   quotes: PropTypes.array.isRequired,
-  favorites: PropTypes.array.isRequired,
+  favorites: PropTypes.array,
   error: PropTypes.string
 }
