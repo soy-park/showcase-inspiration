@@ -31,19 +31,19 @@ class App extends Component {
   }
 
   favoriteQuote = (quote) => {
-    if (this.state.favorites.length > 0) {
-      this.setState({ favorites: [...this.state.favorites, quote] })
+    if (this.state.favorites.some(favorite => favorite._id === quote._id)) {
+      return;
     } else {
-      this.setState({ favorites: quote })
+      this.setState((prevState) => ({favorites: [...prevState.favorites, quote]}))
     }
   }
 
   toggleFavorite = (id) => {
     const selectedQuote = this.state.quotes.find(quote => quote._id === id);
 
-    if (!this.state.favorites.includes(selectedQuote)) {
+    if (!this.state.favorites.some(favorite => favorite._id === id)) {
       this.favoriteQuote(selectedQuote)
-    } else if (this.state.favorites.includes(selectedQuote)) {
+    } else {
       const updatedFavs = this.state.favorites.filter(favorite => favorite._id !== id)
       this.setState({ favorites: updatedFavs })
     }

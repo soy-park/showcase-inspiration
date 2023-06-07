@@ -5,7 +5,7 @@ import Encouragement from "../Encouragement/Encouragement";
 function CardContainer({ quotes, favorites, toggleFavorite }) {
 
     const cards = quotes.map(quote => {
-        const isFavorite = favorites.includes(quote)
+        const isFavorite = favorites.some(favorite => favorite._id === quote._id);
         
         return (
             <article className="card">
@@ -13,11 +13,12 @@ function CardContainer({ quotes, favorites, toggleFavorite }) {
                     key={quote._id}
                     quote={quote.quoteText}
                     author={quote.quoteAuthor}
+                    isFavorite={isFavorite}
                 /> 
                 <button 
                     className={`favorite-button ${isFavorite ? "favorite" : ''}`} 
                     onClick={() => toggleFavorite(quote._id)}>
-                    {isFavorite ? "Unfavor" : "Favorite!"}
+                    {isFavorite ? "Unfavorite" : "Favorite!"}
                 </button>
             </article>
         )
