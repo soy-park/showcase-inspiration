@@ -1,12 +1,40 @@
+@media (max-width: 768px) {
+  body {
+    background-size: 250% 100%;
+  } 
+
+  .heading {
+    font-size: 3em;
+  }
+  
+  a { 
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 769px) {
+  body {
+    background-size: 100% 100%;
+  } 
+  
+  .heading {
+    font-size: 4em;
+  }
+
+  a { 
+    font-size: 2em;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
   background-image: url(https://www.amnhealthcare.com/siteassets/amn-insights/blog/covid-articles/supporting-healthcare-heroes.jpg?format=webp);
   background-repeat: no-repeat;
-  background-size: cover;
   height: 100%;
+  width: 100%;
   font-family: "Gill Sans", sans-serif;
-}
+} 
 
 .header-and-nav {
   background-color: rgb(27, 45, 83);
@@ -15,7 +43,6 @@ body {
 
 .heading {
   text-align: center;
-  font-size: 4em;
   color: rgb(251, 251, 125);
   padding-top: 0.5em;
   margin-top: 0;
@@ -30,5 +57,10 @@ nav {
 
 a {
   color: white;
-  font-size: 2em;
+}
+
+.encouragement-section {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
 }
