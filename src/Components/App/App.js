@@ -3,6 +3,7 @@ import {Route, NavLink } from "react-router-dom";
 import '../App/App.css';
 import CardContainer from '../CardContainer/CardContainer';
 import Favorite from "../Favorite/Favorite";
+import NotFoundPage from "../NotFoundPage/NotFoundPage";
 
 class App extends Component {
   constructor() {
