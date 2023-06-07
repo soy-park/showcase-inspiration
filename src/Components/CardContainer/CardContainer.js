@@ -8,7 +8,7 @@ function CardContainer({ quotes, favorites, toggleFavorite }) {
         const isFavorite = favorites.includes(quote)
         
         return (
-            <section className="card">
+            <article className="card">
                 <Encouragement 
                     key={quote._id}
                     quote={quote.quoteText}
@@ -19,7 +19,7 @@ function CardContainer({ quotes, favorites, toggleFavorite }) {
                     onClick={() => toggleFavorite(quote._id)}>
                     {isFavorite ? "Unfavor" : "Favorite!"}
                 </button>
-            </section>
+            </article>
         )
     })
 
