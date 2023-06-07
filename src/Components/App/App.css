@@ -1,3 +1,29 @@
+@media (max-width: 768px) {
+  .heading {
+    font-size: 3em;
+  }
+
+  a { 
+    font-size: 1.5em;
+  }
+
+  .encouragement-section {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+}
+
+@media (min-width: 769px) {
+  .heading {
+    font-size: 4em;
+  }
+
+  a { 
+    font-size: 2em;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -6,7 +32,7 @@ body {
   height: 100%;
   width: 100%;
   font-family: "Gill Sans", sans-serif;
-}
+} 
 
 .header-and-nav {
   background-color: rgb(27, 45, 83);
@@ -15,7 +41,6 @@ body {
 
 .heading {
   text-align: center;
-  font-size: 4em;
   color: rgb(251, 251, 125);
   padding-top: 0.5em;
   margin-top: 0;
@@ -30,5 +55,4 @@ nav {
 
 a {
   color: white;
-  font-size: 2em;
 }

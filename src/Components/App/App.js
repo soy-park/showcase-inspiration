@@ -60,12 +60,14 @@ class App extends Component {
             <NavLink to='/favorites'>Favorites</NavLink>
           </nav>
         </section>
+        <section className="encouragement-section">
         {this.state.error && <p className="error-message">{this.state.error}</p>}
-        <Switch>
-          <Route exact path='/' render={() => <CardContainer quotes={this.state.quotes} favorites={this.state.favorites} toggleFavorite={this.toggleFavorite} />}/>
-          <Route path='/favorites' render={() => <Favorite favorites={this.state.favorites} toggleFavorite={this.toggleFavorite} />}/>
-          <Route path="*" render={() => <NotFoundPage />} />
-        </Switch>
+          <Switch>
+            <Route exact path='/' render={() => <CardContainer quotes={this.state.quotes} favorites={this.state.favorites} toggleFavorite={this.toggleFavorite} />}/>
+            <Route path='/favorites' render={() => <Favorite favorites={this.state.favorites} toggleFavorite={this.toggleFavorite} />}/>
+            <Route path="*" render={() => <NotFoundPage />} />
+          </Switch>
+        </section>
       </main>
     )
   }
