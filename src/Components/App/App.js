@@ -59,8 +59,8 @@ class App extends Component {
           <NavLink to='/favorites'>Favorites</NavLink>
         </nav>
         {this.state.error && <h5 className="error-message">{this.state.error}</h5>}
-        <Route exact path='/' render={() => <CardContainer quotes={this.state.quotes} favorites={this.state.favorites} favoriteQuote={this.favoriteQuote} />}/>
-        <Route path='/favorites' render={() => <Favorite quotes={this.state.quotes} favorites={this.state.favorites} favoriteQuote={this.favoriteQuote} />}/>
+        <Route exact path='/' render={() => <CardContainer quotes={this.state.quotes} toggleFavorite={this.toggleFavorite} />}/>
+        <Route path='/favorites' render={() => <Favorite favs={this.state.favorites} toggleFavorite={this.toggleFavorite} />}/>
       </main>
     )
   }
