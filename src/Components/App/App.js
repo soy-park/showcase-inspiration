@@ -4,6 +4,7 @@ import '../App/App.css';
 import CardContainer from '../CardContainer/CardContainer';
 import Favorite from "../Favorite/Favorite";
 import NotFoundPage from "../NotFoundPage/NotFoundPage";
+import PropTypes from "prop-types";
 
 class App extends Component {
   constructor() {

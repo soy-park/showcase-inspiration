@@ -1,6 +1,7 @@
 import React from "react";
 import "../CardContainer/CardContainer.css";
 import Encouragement from "../Encouragement/Encouragement";
+import PropTypes from "prop-types";
 
 function CardContainer({ quotes, favorites, toggleFavorite }) {
 

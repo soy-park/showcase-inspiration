@@ -1,5 +1,6 @@
 import React from "react";
 import "../Encouragement/Encouragement.css";
+import PropTypes from "prop-types";
 
 const Encouragement = ({ cardKey, quote, author }) => {
 
