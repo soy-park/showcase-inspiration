@@ -52,11 +52,13 @@ class App extends Component {
   render() {
     return (
       <main className="main-page">
-        <h1>Meditation is Medicine for the Mind</h1>
-        <nav>
-          <NavLink exact to='/'>All Quotes</NavLink>
-          <NavLink to='/favorites'>Favorites</NavLink>
-        </nav>
+        <section className="header-and-nav">
+          <h1 className="heading">Medicine for the Mind</h1>
+          <nav>
+            <NavLink exact to='/'>All Quotes</NavLink>
+            <NavLink to='/favorites'>Favorites</NavLink>
+          </nav>
+        </section>
         {this.state.error && <h5 className="error-message">{this.state.error}</h5>}
         <Route exact path='/' render={() => <CardContainer quotes={this.state.quotes} favorites={this.state.favorites} toggleFavorite={this.toggleFavorite} />}/>
         <Route path='/favorites' render={() => <Favorite favorites={this.state.favorites} toggleFavorite={this.toggleFavorite} />}/>

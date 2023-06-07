@@ -3,4 +3,29 @@
   background: url(https://www.amnhealthcare.com/siteassets/amn-insights/blog/covid-articles/supporting-healthcare-heroes.jpg?format=webp);
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: "Gill Sans", sans-serif;
+}
+
+.header-and-nav {
+  background-color: rgb(27, 45, 83);
+  margin-bottom: 1em;
+}
+
+.heading {
+  font-size: 4em;
+  color: yellow;
+  padding-top: 0.5em;
+  margin-top: 0;
+}
+
+nav {
+  padding-bottom: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+a {
+  color: yellow;
+  font-size: 2em;
 }
