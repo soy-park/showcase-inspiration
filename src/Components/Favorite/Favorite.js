@@ -28,3 +28,8 @@ function Favorite({ favorites, toggleFavorite }) {
 }
 
 export default Favorite;
+
+Encouragement.propTypes = {
+    favorites: PropTypes.array,
+    toggleFavorite: PropTypes.func.isRequired
+}

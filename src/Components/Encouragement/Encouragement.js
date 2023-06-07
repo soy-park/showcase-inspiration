@@ -12,3 +12,9 @@ const Encouragement = ({ cardKey, quote, author }) => {
 }
 
 export default Encouragement
+
+Encouragement.propTypes = {
+    cardKey: PropTypes.string,
+    quote: PropTypes.string,
+    author: PropTypes.string
+}

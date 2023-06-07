@@ -37,4 +37,4 @@ CardContainer.propTypes = {
     quotes: PropTypes.array.isRequired,
     favorites: PropTypes.array,
     toggleFavorite: PropTypes.func.isRequired
-  }
+}
