@@ -1,5 +1,4 @@
 import React from "react";
-import CardContainer from "../CardContainer/CardContainer";
 
 function Favorite({ quotes, favorites, favoriteQuote }) {
     return (
