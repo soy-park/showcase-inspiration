@@ -1,6 +1,13 @@
 import React from "react";
+import '../Favorite/Favorite.css'
 
-function Favorite({ quotes, favorites, favoriteQuote }) {
+function Favorite({ favorites, toggleFavorite }) {
+    
+    const favs = favorites.map(favorite => {
+        return (
+            <
+        )
+    })
     return (
         <div>
             <p>Hello</p>

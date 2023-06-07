@@ -4,7 +4,7 @@ import Encouragement from "../Encouragement/Encouragement";
 
 function CardContainer({ quotes, favorites, toggleFavorite }) {
 
-    cards = quotes.map(quote => {
+    const cards = quotes.map(quote => {
         const isFavorite = favorites.includes(quote)
         
         return (
