@@ -1,8 +1,10 @@
-.main-page {
-  text-align: center;
-  background: url(https://www.amnhealthcare.com/siteassets/amn-insights/blog/covid-articles/supporting-healthcare-heroes.jpg?format=webp);
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url(https://www.amnhealthcare.com/siteassets/amn-insights/blog/covid-articles/supporting-healthcare-heroes.jpg?format=webp);
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100%;
   font-family: "Gill Sans", sans-serif;
 }
 
@@ -12,8 +14,9 @@
 }
 
 .heading {
+  text-align: center;
   font-size: 4em;
-  color: rgb(214, 235, 241);
+  color: rgb(251, 251, 125);
   padding-top: 0.5em;
   margin-top: 0;
 }
