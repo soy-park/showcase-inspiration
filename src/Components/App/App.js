@@ -74,3 +74,9 @@ class App extends Component {
 }
 
 export default App;
+
+App.propTypes = {
+  quotes: PropTypes.array.isRequired,
+  favorites: PropTypes.array.isRequired,
+  error: PropTypes.string
+}
