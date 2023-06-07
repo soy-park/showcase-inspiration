@@ -13,6 +13,10 @@
 }
 
 @media (min-width: 769px) {
+  body {
+    background-size: 100% 100%;
+  } 
+  
   .heading {
     font-size: 4em;
   }
