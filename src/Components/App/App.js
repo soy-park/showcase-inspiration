@@ -18,7 +18,6 @@ class App extends Component {
     return fetch("https://quote-garden.onrender.com/api/v3/quotes")
       .then(response => {
         if (!response.ok) {
-          this.setState({ error: `${response.status}, ${response.statusText}`})
           throw new Error(`${response.status}, ${response.statusText}`)
         }
         return response.json()
@@ -27,8 +26,7 @@ class App extends Component {
         this.setState({ quotes: data.data })
       })
       .catch(err => {
-        this.setState({ error: `${err}` })
-        throw new Error(`${err}`)
+        this.setState({ error: `${err.message}` })
       })
   }
 
@@ -41,7 +39,7 @@ class App extends Component {
   }
 
   toggleFavorite = (id) => {
-    const selectedQuote = quotes.find(quote => quote._id === id);
+    const selectedQuote = this.state.quotes.find(quote => quote._id === id);
 
     if (!this.state.favorites.includes(selectedQuote)) {
       this.favoriteQuote(selectedQuote)
@@ -55,16 +53,14 @@ class App extends Component {
     return (
       <main className="main-page">
         <h1>Meditation is Medicine for the Mind</h1>
-        <h2>Encouragement Regarding Aging</h2>
+        <h2>Aging: Number of Years of Fun</h2>
         <nav>
-          <NavLink to='/'>All Quotes</NavLink>
+          <NavLink exact to='/'>All Quotes</NavLink>
           <NavLink to='/favorites'>Favorites</NavLink>
         </nav>
         {this.state.error && <h5 className="error-message">{this.state.error}</h5>}
-        <Switch>
-          <Route path='/' render={() => <CardContainer quotes={this.state.quotes} favorites={this.state.favorites} favoriteQuote={this.favoriteQuote} />}/>
-          <Route path='/favorites' render={() => <Favorite quotes={this.state.quotes} favorites={this.state.favorites} favoriteQuote={this.favoriteQuote} />}/>
-        </Switch>
+        <Route exact path='/' render={() => <CardContainer quotes={this.state.quotes} favorites={this.state.favorites} favoriteQuote={this.favoriteQuote} />}/>
+        <Route path='/favorites' render={() => <Favorite quotes={this.state.quotes} favorites={this.state.favorites} favoriteQuote={this.favoriteQuote} />}/>
       </main>
     )
   }
