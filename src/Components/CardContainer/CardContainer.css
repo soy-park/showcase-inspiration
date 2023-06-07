@@ -20,7 +20,7 @@
 .favorite-button {
     padding-left: 2em;
     padding-right: 2em;
-    border-radius: 15%;
+    border-radius: 10%;
 }
 
 .favorite-button:hover {
