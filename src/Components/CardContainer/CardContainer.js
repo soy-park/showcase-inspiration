@@ -2,15 +2,26 @@ import React from "react";
 import "../CardContainer/CardContainer.css";
 import Encouragement from "../Encouragement/Encouragement";
 
-function CardContainer({ quotes }) {
+function CardContainer({ quotes, favorites, toggleFavorite }) {
+
     const cards = quotes.map(quote => {
-        return <>
-            <Encouragement 
-                key={quote.id}
-                quote={quote.quoteText}
-                author={quote.quoteAuthor}
-            />   
-        </>
+        const isFavorite = favorites.some(favorite => favorite._id === quote._id);
+        
+        return (
+            <article className="card">
+                <Encouragement 
+                    key={quote._id}
+                    quote={quote.quoteText}
+                    author={quote.quoteAuthor}
+                    isFavorite={isFavorite}
+                /> 
+                <button 
+                    className={`favorite-button ${isFavorite ? "favorite" : ''}`} 
+                    onClick={() => toggleFavorite(quote._id)}>
+                    {isFavorite ? "Unfavorite" : "Favorite!"}
+                </button>
+            </article>
+        )
     })
 
     return (
@@ -21,3 +32,4 @@ function CardContainer({ quotes }) {
 }
 
 export default CardContainer
+  

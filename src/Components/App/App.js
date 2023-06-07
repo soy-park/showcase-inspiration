@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import {Route, Switch, NavLink } from "react-router-dom";
+import {Route, NavLink } from "react-router-dom";
 import '../App/App.css';
 import CardContainer from '../CardContainer/CardContainer';
+import Favorite from "../Favorite/Favorite";
 
 class App extends Component {
   constructor() {
@@ -17,7 +18,6 @@ class App extends Component {
     return fetch("https://quote-garden.onrender.com/api/v3/quotes")
       .then(response => {
         if (!response.ok) {
-          this.setState({ error: `${response.status}, ${response.statusText}`})
           throw new Error(`${response.status}, ${response.statusText}`)
         }
         return response.json()
@@ -26,25 +26,41 @@ class App extends Component {
         this.setState({ quotes: data.data })
       })
       .catch(err => {
-        this.setState({ error: `${err}` })
-        throw new Error(`${err}`)
+        this.setState({ error: `${err.message}` })
       })
+  }
+
+  favoriteQuote = (quote) => {
+    if (this.state.favorites.some(favorite => favorite._id === quote._id)) {
+      return;
+    } else {
+      this.setState((prevState) => ({favorites: [...prevState.favorites, quote]}))
+    }
+  }
+
+  toggleFavorite = (id) => {
+    const selectedQuote = this.state.quotes.find(quote => quote._id === id);
+
+    if (!this.state.favorites.some(favorite => favorite._id === id)) {
+      this.favoriteQuote(selectedQuote)
+    } else {
+      const updatedFavs = this.state.favorites.filter(favorite => favorite._id !== id)
+      this.setState({ favorites: updatedFavs })
+    }
   }
 
   render() {
     return (
       <main className="main-page">
         <h1>Meditation is Medicine for the Mind</h1>
-        <h2>Encouragement Regarding Aging</h2>
+        <h2>Aging: Number of Years of Fun</h2>
         <nav>
           <NavLink exact to='/'>All Quotes</NavLink>
           <NavLink to='/favorites'>Favorites</NavLink>
         </nav>
         {this.state.error && <h5 className="error-message">{this.state.error}</h5>}
-        <Switch>
-          <Route exact path='/' render={() => <CardContainer quotes={this.state.quotes} />}/>
-          <Route path='/favorites' render={() => <CardContainer quotes={this.state.favorites} />}/>
-        </Switch>
+        <Route exact path='/' render={() => <CardContainer quotes={this.state.quotes} favorites={this.state.favorites} toggleFavorite={this.toggleFavorite} />}/>
+        <Route path='/favorites' render={() => <Favorite favorites={this.state.favorites} toggleFavorite={this.toggleFavorite} />}/>
       </main>
     )
   }
