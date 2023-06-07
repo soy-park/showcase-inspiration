@@ -1,12 +1,12 @@
 @media (max-width: 768px) {
   body {
-    background-size: 175% 100%;
+    background-size: 250% 100%;
   } 
-  
+
   .heading {
     font-size: 3em;
   }
-
+  
   a { 
     font-size: 1.5em;
   }
