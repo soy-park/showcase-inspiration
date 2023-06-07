@@ -13,7 +13,7 @@ function Favorite({ favorites, toggleFavorite }) {
                     author={favorite.quoteAuthor}
                 />
                 <button 
-                    className="delete-btn"
+                    className="delete-button"
                     onClick={() => toggleFavorite(favorite._id)}>
                     Remove from Favorites
                 </button>
