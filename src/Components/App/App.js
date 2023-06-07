@@ -56,12 +56,13 @@ class App extends Component {
           <h1 className="heading">Medicine for the Mind</h1>
           <nav>
             <NavLink exact to='/'>All Quotes</NavLink>
-            <NavLink to='/favorites'>Favorites</NavLink>
+            <NavLink exact to='/favorites'>Favorites</NavLink>
           </nav>
         </section>
-        {this.state.error && <h5 className="error-message">{this.state.error}</h5>}
+        {this.state.error && <p className="error-message">{this.state.error}</p>}
         <Route exact path='/' render={() => <CardContainer quotes={this.state.quotes} favorites={this.state.favorites} toggleFavorite={this.toggleFavorite} />}/>
-        <Route path='/favorites' render={() => <Favorite favorites={this.state.favorites} toggleFavorite={this.toggleFavorite} />}/>
+        <Route exact path='/favorites' render={() => <Favorite favorites={this.state.favorites} toggleFavorite={this.toggleFavorite} />}/>
+        <Route path="*" render={() => <NotFoundPage />} />
       </main>
     )
   }
