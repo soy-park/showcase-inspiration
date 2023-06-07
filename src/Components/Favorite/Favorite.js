@@ -1,6 +1,7 @@
 import React from "react";
 import '../Favorite/Favorite.css'
 import Encouragement from "../Encouragement/Encouragement";
+import PropTypes from "prop-types";
 
 function Favorite({ favorites, toggleFavorite }) {
     
@@ -28,3 +29,8 @@ function Favorite({ favorites, toggleFavorite }) {
 }
 
 export default Favorite;
+
+Encouragement.propTypes = {
+    favorites: PropTypes.array,
+    toggleFavorite: PropTypes.func.isRequired
+}

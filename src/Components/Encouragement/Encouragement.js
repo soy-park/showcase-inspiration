@@ -1,5 +1,6 @@
 import React from "react";
 import "../Encouragement/Encouragement.css";
+import PropTypes from "prop-types";
 
 const Encouragement = ({ cardKey, quote, author }) => {
 
@@ -12,3 +13,9 @@ const Encouragement = ({ cardKey, quote, author }) => {
 }
 
 export default Encouragement
+
+Encouragement.propTypes = {
+    cardKey: PropTypes.string,
+    quote: PropTypes.string,
+    author: PropTypes.string
+}
