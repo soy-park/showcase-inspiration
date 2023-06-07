@@ -13,7 +13,7 @@
 
 .heading {
   font-size: 4em;
-  color: yellow;
+  color: white;
   padding-top: 0.5em;
   margin-top: 0;
 }
@@ -26,6 +26,6 @@ nav {
 }
 
 a {
-  color: yellow;
+  color: white;
   font-size: 2em;
 }
