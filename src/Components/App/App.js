@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import {Route, NavLink } from "react-router-dom";
+import {Route, NavLink, Switch } from "react-router-dom";
 import '../App/App.css';
 import CardContainer from '../CardContainer/CardContainer';
 import Favorite from "../Favorite/Favorite";
+import NotFoundPage from "../NotFoundPage/NotFoundPage";
 
 class App extends Component {
   constructor() {
@@ -55,13 +56,16 @@ class App extends Component {
         <section className="header-and-nav">
           <h1 className="heading">Medicine for the Mind</h1>
           <nav>
-            <NavLink exact to='/'>All Quotes</NavLink>
+            <NavLink to='/'>All Quotes</NavLink>
             <NavLink to='/favorites'>Favorites</NavLink>
           </nav>
         </section>
-        {this.state.error && <h5 className="error-message">{this.state.error}</h5>}
-        <Route exact path='/' render={() => <CardContainer quotes={this.state.quotes} favorites={this.state.favorites} toggleFavorite={this.toggleFavorite} />}/>
-        <Route path='/favorites' render={() => <Favorite favorites={this.state.favorites} toggleFavorite={this.toggleFavorite} />}/>
+        {this.state.error && <p className="error-message">{this.state.error}</p>}
+        <Switch>
+          <Route exact path='/' render={() => <CardContainer quotes={this.state.quotes} favorites={this.state.favorites} toggleFavorite={this.toggleFavorite} />}/>
+          <Route path='/favorites' render={() => <Favorite favorites={this.state.favorites} toggleFavorite={this.toggleFavorite} />}/>
+          <Route path="*" render={() => <NotFoundPage />} />
+        </Switch>
       </main>
     )
   }
