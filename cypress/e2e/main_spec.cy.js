@@ -96,4 +96,32 @@ describe('Main Page', () => {
     cy.get('.card').eq(2).find('.quote').should('not.contain', ':not(:contains("None are so old as those who have outlived enthusiasm."))')
     cy.get('.card').eq(2).find('.author').should('not.contain', ':not(:contains("Henry David Thoreau"))')
   })
+
+  it('should change the favorite button to "Unfavorite" if a card is favorited', () => {
+    cy.get('.card').eq(0).find('.favorite-button').click()
+      .contains("Unfavorite")
+      .should('have.css', 'background-color', 'rgb(246, 141, 141)')
+
+    cy.get('.card').eq(1).find('.favorite-button').click()
+      .contains("Unfavorite")
+      .should('have.css', 'background-color', 'rgb(246, 141, 141)')
+
+    cy.get('.card').eq(2).find('.favorite-button').click()
+      .contains("Unfavorite")
+      .should('have.css', 'background-color', 'rgb(246, 141, 141)')
+  })
+
+  it('should change the favorite button to "Favorite" if a card is unfavorited', () => {
+    cy.get('.card').eq(0).find('.favorite-button').click().click()
+      .contains("Favorite")
+      .should('not.have.css', 'background-color', 'rgb(246, 141, 141)')
+
+    cy.get('.card').eq(1).find('.favorite-button').click().click()
+      .contains("Favorite")
+      .should('not.have.css', 'background-color', 'rgb(246, 141, 141)')
+
+    cy.get('.card').eq(2).find('.favorite-button').click().click()
+      .contains("Favorite")
+      .should('not.have.css', 'background-color', 'rgb(246, 141, 141)')
+  })
 })
