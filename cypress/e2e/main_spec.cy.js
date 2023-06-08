@@ -28,6 +28,14 @@ describe('Main Page', () => {
     cy.contains("p", 'Please click on "All Quotes" above to be directed to your dose!').should('be.visible')
   })
 
+  it('should display a background image of healthcare heroes', () => {
+    cy.get('body').should('have.css', 'background-image', 'url("https://www.amnhealthcare.com/siteassets/amn-insights/blog/covid-articles/supporting-healthcare-heroes.jpg?format=webp")');
+  })
+
+  it('should not display a background image that is not of healthcare heroes', () => {
+    cy.get('body').should('not.have.css', 'background-image', ':not(:contains(url("https://www.amnhealthcare.com/siteassets/amn-insights/blog/covid-articles/supporting-healthcare-heroes.jpg?format=webp")))');
+  })
+
   it('should render a heading', () => {
     cy.contains("h1", "Medicine for the Mind")
   })
@@ -123,5 +131,25 @@ describe('Main Page', () => {
     cy.get('.card').eq(2).find('.favorite-button').click().click()
       .contains("Favorite")
       .should('not.have.css', 'background-color', 'rgb(246, 141, 141)')
+  })
+
+  it('should not change the favorite button to anything other than "Favorite" or "Unfavorite"', () => {
+    cy.get('.card').eq(0).find('.favorite-button').click()
+      .should('not.contain', ':not(:contains("Unfavorite"))')
+
+    cy.get('.card').eq(0).find('.favorite-button').click().click()
+      .should('not.contain', ':not(:contains("Favorite"))')
+
+    cy.get('.card').eq(1).find('.favorite-button').click()
+      .should('not.contain', ':not(:contains("Unfavorite"))')
+
+    cy.get('.card').eq(1).find('.favorite-button').click().click()
+      .should('not.contain', ':not(:contains("Favorite"))')
+
+    cy.get('.card').eq(2).find('.favorite-button').click()
+      .should('not.contain', ':not(:contains("Unfavorite"))')
+
+    cy.get('.card').eq(2).find('.favorite-button').click().click()
+      .should('not.contain', ':not(:contains("Favorite"))')
   })
 })
