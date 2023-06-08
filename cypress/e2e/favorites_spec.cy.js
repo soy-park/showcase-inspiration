@@ -26,7 +26,28 @@ describe('Main Page', () => {
     cy.get('nav').should('not.contain', ':not(:contains("Favorites"))')
   })
 
+  it('should display a background image of healthcare heroes', () => {
+    cy.get('body').should('have.css', 'background-image', 'url("https://www.amnhealthcare.com/siteassets/amn-insights/blog/covid-articles/supporting-healthcare-heroes.jpg?format=webp")');
+  })
+
+  it('should not display a background image that is not of healthcare heroes', () => {
+    cy.get('body').should('not.have.css', 'background-image', ':not(:contains(url("https://www.amnhealthcare.com/siteassets/amn-insights/blog/covid-articles/supporting-healthcare-heroes.jpg?format=webp")))');
+  })
+
   it('should not render any cards if no cards are favorited"', () => {
+   
+  })
+
+  it('should render cards that are favorited"', () => {
+   
+  })
+
+  it('should not render cards that are not favorited"', () => {
+   
+  })
+
+
+  it('should go to a new url when user clicks on "All Quotes', () => {
    
   })
 
