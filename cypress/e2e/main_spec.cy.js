@@ -54,6 +54,11 @@ describe('Main Page', () => {
     cy.url().should('include', '/favorites')
   })
 
+  it('should not stay at the current base URL when the "Favorites" is clicked', () => {
+    cy.get('nav').contains('Favorites').click() 
+      .url().should('not.eq', 'http://localhost:3000/') 
+  })
+
   it('should display a list of encouragement cards', () => {
     cy.get('main').find('.card').should('have.lengthOf', 3)
   })
@@ -67,14 +72,28 @@ describe('Main Page', () => {
 
     cy.get('.card').eq(1).contains("Age appears to be best in four things old wood best to burn, old wine to drink, old friends to trust, and old authors to read.")
     cy.get('.card').eq(1).contains("Francis Bacon")
-    cy.get('.card').eq(0).find('.favorite-button')
+    cy.get('.card').eq(1).find('.favorite-button')
       .should('be.visible') 
       .contains("Favorite")
 
     cy.get('.card').eq(2).contains("None are so old as those who have outlived enthusiasm.")
     cy.get('.card').eq(2).contains("Henry David Thoreau")
-    cy.get('.card').eq(0).find('.favorite-button')
+    cy.get('.card').eq(2).find('.favorite-button').scrollIntoView()
       .should('be.visible') 
       .contains("Favorite")
+  })
+
+  it('should not display encouragement cards that are not part of the fetched data', () => {
+    cy.get('main').find('.card').should('have.length.not.lessThan', 3);
+    cy.get('main').find('.card').should('have.length.not.greaterThan', 3);
+
+    cy.get('.card').eq(0).find('.quote').should('not.contain', ':not(:contains("Like everyone else who makes the mistake of getting older, I begin each day with coffee and obituaries."))')
+    cy.get('.card').eq(0).find('.author').should('not.contain', ':not(:contains("Bill Cosby"))')
+
+    cy.get('.card').eq(1).find('.quote').should('not.contain', ':not(:contains("Age appears to be best in four things old wood best to burn, old wine to drink, old friends to trust, and old authors to read."))')
+    cy.get('.card').eq(1).find('.author').should('not.contain', ':not(:contains("Francis Bacon"))')
+
+    cy.get('.card').eq(2).find('.quote').should('not.contain', ':not(:contains("None are so old as those who have outlived enthusiasm."))')
+    cy.get('.card').eq(2).find('.author').should('not.contain', ':not(:contains("Henry David Thoreau"))')
   })
 })
