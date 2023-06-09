@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Medicine for the Mind
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Abstract
+This application is tailored to healthcare workers who want some encouragement regarding aging. The webpage allows them to view a list of cards, each containing an encouraging quote and author, and favorite them. They can see a collection of their favorited cards on a different page called Favorites. 
 
-## Available Scripts
+## Technologies Used
+- JavaScript
+- React 
+- Router
+- Cypress
+- HTML
+- CSS
 
-In the project directory, you can run:
+## Deployed link 
+https://showcase-medicine-for-the-mind.vercel.app/
 
-### `npm start`
+## Installation Instructions
+1. Copy SSH key on GitHub inside the code dropdown
+2. Using the terminal, run `git clone [SSH key]`
+3. Run command `cd showcase-medicine-for-the-mind` to move into project directory
+4. Run command open `npm start` to launch the application in the web browser
+5. Open [http://localhost:3000](http://localhost:3000) to view it in your browser
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Preview of App
+![Image](Healthcare-heroes.png)
+![Image](Healthcare-heroes-favorites.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Context
+The curriculum at Turing School of Software and Design contains four modules with each module being six weeks in length. "Medicine for the Mind" was completed during the fifth week of Module 3 at Turing School of Software and Design. The time to complete this project was approximately 20-25 hours. 
 
-### `npm test`
+## Contributors
+Soyeon Park [@soy-park](https://github.com/soy-park)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Learning Goals
+- Demonstrate mastery of React, Router, asynchronous JavaScript, and end-to-end testing with Cypress
+    - Create multiple views using Router
+    - Display data from an API
+    - Add functionality such as favoriting or adding to a list, searching, commenting, etc.
+- Create personas and user stories to describe a target audience
+- Work within constraints to deliver a product for a niche audience, which helps solve a problem unique to them
 
-### `npm run build`
+## Wins + Challenges
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Wins: 
+- Successfully fetching data from a public API using network requests
+- Using components with React and passing in props
+- Creating organized, modular files for each component 
+- Figuring out that links in the application weren't working because BrowserRouter didn't wrap `<React.StrictMode>` and `<App />` 
+- Intercepting data and using Cypress assertions in tests
+- Designing the page layout with primary colors to make it consistent with a youthful, encouraging vibe 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Challenges: 
+- Having all aspects of the application be tailored to a specific niche audience 
+- Deciding whether or not to use Switch in React Router
+- Creating sad paths for Cypress tests (because they seemed redundant)
