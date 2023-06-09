@@ -22,8 +22,7 @@ https://showcase-medicine-for-the-mind.vercel.app/
 5. Open [http://localhost:3000](http://localhost:3000) to view it in your browser
 
 ## Preview of App
-![Image](src/Screenshots/Healthcare-heroes.png)
-![Image](src/Screenshots/Healthcare-heroes-favorites.png)
+![Preview of App](src/giphy.gif)
 
 ## Context
 The curriculum at Turing School of Software and Design contains four modules with each module being six weeks in length. "Medicine for the Mind" was completed during the fifth week of Module 3 at Turing School of Software and Design. The time to complete this project was approximately 20-25 hours. 
