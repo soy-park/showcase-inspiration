@@ -21,7 +21,8 @@ This application is tailored to healthcare workers who want some encouragement r
 5. Open [http://localhost:3000](http://localhost:3000) to view it in your browser
 
 ## Preview of App
-![Image](assets/preview.gif - file here)
+![Image](Healthcare-heroes.png)
+![Image](Healthcare-heroes-favorites.png)
 
 ## Context
 The curriculum at Turing School of Software and Design contains four modules with each module being six weeks in length. "Medicine for the Mind" was completed during the fifth week of Module 3 at Turing School of Software and Design. The time to complete this project was approximately 20-25 hours. 
@@ -46,7 +47,6 @@ Soyeon Park [@soy-park](https://github.com/soy-park)
 - Figuring out that links in the application weren't working because BrowserRouter didn't wrap `<React.StrictMode>` and `<App />` 
 - Intercepting data and using Cypress assertions in tests
 - Designing the page layout with primary colors to make it consistent with a youthful, encouraging vibe 
-
 
 #### Challenges: 
 - Having all aspects of the application be tailored to a specific niche audience 
