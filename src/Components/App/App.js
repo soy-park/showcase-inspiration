@@ -13,13 +13,14 @@ class App extends Component {
       quotes: [], 
       favorites: [],
       error: ''
-    }
+    };
   }
 
   componentDidMount = () => {
     return fetch("https://quote-garden.onrender.com/api/v3/quotes")
       .then(response => {
         if (!response.ok) {
+          this.setState({ error: `${response.statusText}` })
           throw new Error(`${response.status}, ${response.statusText}`)
         }
         return response.json()
