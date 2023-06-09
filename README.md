@@ -12,6 +12,7 @@ This application is tailored to healthcare workers who want some encouragement r
 - CSS
 
 ## Deployed link 
+https://showcase-medicine-for-the-mind.vercel.app/
 
 ## Installation Instructions
 1. Copy SSH key on GitHub inside the code dropdown
